@@ -1,0 +1,1517 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kerlon Eletro — Instrumentos & Acessórios</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --yellow: #FFE600;
+  --yellow-dark: #F0D800;
+  --blue: #1A1A2E;
+  --blue-mid: #16213E;
+  --blue-light: #0F3460;
+  --accent: #E94560;
+  --text: #333;
+  --text-light: #666;
+  --border: #E5E5E5;
+  --bg: #F5F5F5;
+  --white: #FFFFFF;
+  --radius: 8px;
+  --shadow: 0 1px 4px rgba(0,0,0,0.12);
+  --shadow-hover: 0 4px 16px rgba(0,0,0,0.16);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); }
+
+/* ── HEADER ── */
+.header {
+  background: var(--blue);
+  padding: 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+.header-top {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.logo {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  cursor: pointer;
+}
+.logo-main {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--yellow);
+  letter-spacing: -0.5px;
+}
+.logo-sub {
+  font-size: 10px;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.search-bar {
+  flex: 1;
+  display: flex;
+  max-width: 680px;
+}
+.search-bar input {
+  flex: 1;
+  padding: 11px 16px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  background: var(--white);
+  color: var(--text);
+}
+.search-bar button {
+  padding: 11px 20px;
+  background: var(--yellow);
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background .2s;
+}
+.search-bar button:hover { background: var(--yellow-dark); }
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+.header-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  cursor: pointer;
+  color: var(--white);
+  background: none;
+  border: none;
+  font-family: 'Inter',sans-serif;
+  transition: opacity .2s;
+}
+.header-btn:hover { opacity: 0.8; }
+.header-btn .icon { font-size: 20px; }
+.header-btn .label { font-size: 10px; color: rgba(255,255,255,0.7); white-space: nowrap; }
+.fav-count {
+  background: var(--accent);
+  color: white;
+  border-radius: 50%;
+  width: 16px; height: 16px;
+  font-size: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: -6px;
+  margin-top: -6px;
+  font-weight: 700;
+  position: relative;
+  top: -8px;
+  left: -4px;
+}
+
+/* nav cats */
+.header-nav {
+  background: var(--blue-mid);
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+.header-nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.header-nav-inner::-webkit-scrollbar { display: none; }
+.nav-cat {
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255,255,255,0.75);
+  cursor: pointer;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: all .2s;
+  background: none;
+  border-left: none; border-right: none; border-top: none;
+  font-family: 'Inter', sans-serif;
+}
+.nav-cat:hover { color: var(--yellow); }
+.nav-cat.active { color: var(--yellow); border-bottom-color: var(--yellow); }
+
+/* ── MAIN LAYOUT ── */
+.main-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 16px;
+}
+@media(max-width: 768px) {
+  .main-wrap { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+}
+
+/* ── SIDEBAR ── */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.sidebar-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+.sidebar-title {
+  padding: 14px 16px 10px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+}
+.sidebar-list { padding: 8px 0; }
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 16px;
+  font-size: 13px;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: background .15s, color .15s;
+}
+.sidebar-item:hover { background: #f8f8f8; color: var(--blue-light); }
+.sidebar-item.active { color: var(--blue-light); font-weight: 600; }
+.sidebar-item .cat-icon { font-size: 16px; }
+.sidebar-item .cat-count {
+  margin-left: auto;
+  font-size: 11px;
+  background: var(--bg);
+  padding: 2px 7px;
+  border-radius: 10px;
+  color: var(--text-light);
+}
+
+/* price filter */
+.price-inputs { display: flex; gap: 8px; padding: 12px 16px; }
+.price-inputs input {
+  flex: 1;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 12px;
+  font-family: 'Inter',sans-serif;
+  outline: none;
+}
+.price-inputs input:focus { border-color: var(--blue-light); }
+.price-btn {
+  width: calc(100% - 32px);
+  margin: 0 16px 14px;
+  padding: 9px;
+  background: var(--blue);
+  color: var(--yellow);
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter',sans-serif;
+  transition: background .2s;
+}
+.price-btn:hover { background: var(--blue-light); }
+
+/* ── CONTENT AREA ── */
+.content { min-width: 0; }
+
+/* ── BANNER ── */
+.banner-wrap {
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 16px;
+  position: relative;
+  background: var(--blue);
+  aspect-ratio: 16/5;
+  cursor: pointer;
+}
+.banner-slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 48px;
+  opacity: 0;
+  transition: opacity .5s;
+  pointer-events: none;
+}
+.banner-slide.active { opacity: 1; pointer-events: all; }
+.banner-slide.b1 { background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%); }
+.banner-slide.b2 { background: linear-gradient(135deg, #0F3460 0%, #533483 100%); }
+.banner-slide.b3 { background: linear-gradient(135deg, #16213E 0%, #1a472a 100%); }
+.banner-text { flex: 1; }
+.banner-tag {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--blue);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+.banner-title {
+  font-size: clamp(18px, 3vw, 28px);
+  font-weight: 700;
+  color: white;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.banner-sub { font-size: 13px; color: rgba(255,255,255,0.7); }
+.banner-emoji { font-size: clamp(48px, 8vw, 80px); flex-shrink: 0; }
+.banner-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+}
+.banner-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.35);
+  cursor: pointer;
+  transition: background .2s;
+  border: none;
+}
+.banner-dot.active { background: var(--yellow); }
+.banner-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: white;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .2s;
+}
+.banner-arrow:hover { background: rgba(255,255,255,0.3); }
+.banner-arrow.prev { left: 12px; }
+.banner-arrow.next { right: 12px; }
+
+/* ── CAT SHORTCUTS ── */
+.cat-shortcuts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.cat-shortcut {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: box-shadow .2s, transform .15s;
+  border: 2px solid transparent;
+}
+.cat-shortcut:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+.cat-shortcut.active { border-color: var(--blue-light); }
+.cat-shortcut .cs-icon { font-size: 26px; }
+.cat-shortcut .cs-name { font-size: 11px; font-weight: 500; color: var(--text); text-align: center; line-height: 1.3; }
+
+/* ── SECTION HEADER ── */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.section-header h2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+}
+.section-header span {
+  font-size: 13px;
+  color: var(--blue-light);
+  cursor: pointer;
+  font-weight: 500;
+}
+.section-header span:hover { text-decoration: underline; }
+
+/* ── PRODUCT GRID ── */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+/* ── PRODUCT CARD ── */
+.pcard {
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow .2s, transform .15s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.pcard:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
+
+.pcard-fav {
+  position: absolute;
+  top: 8px; right: 8px;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  width: 30px; height: 30px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+  cursor: pointer;
+  z-index: 2;
+  transition: all .2s;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+}
+.pcard-fav:hover { transform: scale(1.15); }
+.pcard-fav.active { background: #fff0f3; border-color: var(--accent); }
+
+.pcard-badge {
+  position: absolute;
+  top: 8px; left: 8px;
+  background: var(--accent);
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 3px;
+  letter-spacing: .3px;
+  text-transform: uppercase;
+  z-index: 2;
+}
+.pcard-badge.top { background: var(--blue-light); }
+.pcard-badge.novo { background: #2e7d32; }
+.pcard-badge.oferta { background: var(--accent); }
+
+.pcard-img {
+  width: 100%;
+  aspect-ratio: 1;
+  background: #f8f8f8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 52px;
+  overflow: hidden;
+  position: relative;
+}
+.pcard-img img, .pcard-img video {
+  width: 100%; height: 100%; object-fit: cover;
+  position: absolute; inset: 0;
+}
+.pcard-img .p-emoji { position: relative; z-index: 1; }
+
+.pcard-body { padding: 12px; flex: 1; display: flex; flex-direction: column; }
+.pcard-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.4;
+  margin-bottom: 6px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.pcard-price {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+.pcard-price-small { font-size: 12px; font-weight: 400; color: var(--text-light); margin-bottom: 8px; }
+.pcard-cta {
+  margin-top: auto;
+  display: block;
+  width: 100%;
+  padding: 8px;
+  background: var(--blue);
+  color: var(--yellow);
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter',sans-serif;
+  transition: background .2s;
+  letter-spacing: .3px;
+}
+.pcard-cta:hover { background: var(--blue-light); }
+
+/* ── MODAL ── */
+.overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.overlay.open { display: flex; }
+.modal {
+  background: var(--white);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 820px;
+  max-height: 92vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  position: relative;
+}
+.modal-close {
+  position: sticky;
+  top: 12px;
+  float: right;
+  margin: 12px 12px 0 0;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text-light);
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 5;
+  transition: background .2s;
+}
+.modal-close:hover { background: var(--border); }
+.modal-inner { padding: 20px 24px 32px; }
+
+.modal-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+@media(max-width:600px) { .modal-layout { grid-template-columns: 1fr; } }
+
+.modal-media-main {
+  width: 100%;
+  aspect-ratio: 1;
+  background: #f8f8f8;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 80px;
+  position: relative;
+  margin-bottom: 8px;
+}
+.modal-media-main img, .modal-media-main video {
+  width: 100%; height: 100%; object-fit: cover;
+  position: absolute; inset: 0;
+}
+.modal-media-main .m-emoji { position: relative; z-index: 1; }
+
+.thumb-strip { display: flex; gap: 6px; flex-wrap: wrap; }
+.thumb {
+  width: 56px; height: 56px;
+  border-radius: 6px;
+  border: 2px solid var(--border);
+  overflow: hidden;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 20px;
+  background: #f8f8f8;
+  transition: border-color .2s;
+  flex-shrink: 0;
+}
+.thumb.active { border-color: var(--blue-light); }
+.thumb img, .thumb video { width: 100%; height: 100%; object-fit: cover; }
+
+.modal-info {}
+.modal-cat {
+  font-size: 12px;
+  color: var(--text-light);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.modal-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+.modal-price-big {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.modal-price-note { font-size: 12px; color: var(--text-light); margin-bottom: 16px; }
+.modal-desc {
+  font-size: 13px;
+  color: var(--text-light);
+  line-height: 1.7;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.opt-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.opt-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.opt-chip {
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--text-light);
+  cursor: pointer;
+  background: none;
+  font-family: 'Inter',sans-serif;
+  transition: all .15s;
+}
+.opt-chip:hover, .opt-chip.on {
+  border-color: var(--blue-light);
+  color: var(--blue-light);
+  background: rgba(15,52,96,0.05);
+}
+
+.modal-cta-wrap { display: flex; flex-direction: column; gap: 8px; margin-top: 4px; }
+.btn-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  background: #25D366;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Inter',sans-serif;
+  transition: background .2s;
+}
+.btn-whatsapp:hover { background: #1ebe5a; }
+.btn-fav-modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'Inter',sans-serif;
+  color: var(--text-light);
+  transition: all .2s;
+}
+.btn-fav-modal:hover { border-color: var(--accent); color: var(--accent); }
+.btn-fav-modal.active { border-color: var(--accent); color: var(--accent); background: #fff0f3; }
+
+.related-section { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border); }
+.related-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 12px; }
+.related-row { display: flex; gap: 10px; flex-wrap: wrap; }
+.related-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  flex: 1;
+  min-width: 140px;
+  transition: border-color .2s, box-shadow .2s;
+}
+.related-item:hover { border-color: var(--blue-light); box-shadow: var(--shadow); }
+.rel-icon { font-size: 24px; flex-shrink: 0; }
+.rel-info {}
+.rel-name { font-size: 12px; font-weight: 600; color: var(--text); }
+.rel-price { font-size: 13px; font-weight: 700; color: var(--text); }
+
+/* ── FAVORITES PAGE ── */
+.fav-page { display: none; }
+.fav-page.open { display: block; }
+.catalog-page { }
+.catalog-page.hidden { display: none; }
+
+/* ── ADMIN ── */
+.admin-toggle {
+  position: fixed;
+  bottom: 20px; right: 20px;
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: var(--yellow);
+  border: 2px solid var(--yellow);
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 200;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+  transition: transform .2s;
+}
+.admin-toggle:hover { transform: scale(1.08); }
+
+.admin-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.65);
+  z-index: 400;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.admin-overlay.open { display: flex; }
+.admin-box {
+  background: var(--white);
+  border-radius: 12px;
+  width: 100%;
+  max-width: 620px;
+  max-height: 92vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+}
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--white);
+  z-index: 2;
+}
+.admin-header h2 { font-size: 17px; font-weight: 700; }
+.admin-header .x { background: none; border: none; font-size: 20px; cursor: pointer; color: var(--text-light); }
+.admin-body { padding: 20px; }
+.form-section { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue-light); margin-bottom: 14px; }
+.form-group { margin-bottom: 14px; }
+.form-group label { display: block; font-size: 12px; font-weight: 600; color: var(--text-light); margin-bottom: 5px; text-transform: uppercase; letter-spacing: .5px; }
+.form-group input, .form-group textarea, .form-group select {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: 'Inter',sans-serif;
+  outline: none;
+  color: var(--text);
+  background: var(--white);
+  transition: border-color .2s;
+}
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--blue-light); }
+.form-group textarea { resize: vertical; min-height: 72px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.tag-row { display: flex; gap: 6px; }
+.tag-row input { flex: 1; }
+.add-tag { padding: 9px 14px; background: var(--bg); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; font-size: 18px; color: var(--blue-light); transition: border-color .2s; }
+.add-tag:hover { border-color: var(--blue-light); }
+.tags-preview { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.tag-pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 10px;
+  background: rgba(15,52,96,0.08);
+  border: 1px solid rgba(15,52,96,0.2);
+  border-radius: 20px;
+  font-size: 12px;
+  color: var(--blue-light);
+}
+.tag-x { cursor: pointer; color: var(--text-light); font-size: 13px; }
+.tag-x:hover { color: var(--accent); }
+.rel-checks { display: flex; flex-wrap: wrap; gap: 6px; }
+.rel-check-item {
+  display: flex; align-items: center; gap: 5px;
+  padding: 5px 11px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  font-size: 12px;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all .15s;
+  user-select: none;
+}
+.rel-check-item input { display: none; }
+.rel-check-item.on { border-color: var(--blue-light); color: var(--blue-light); background: rgba(15,52,96,0.05); }
+.save-btn {
+  width: 100%;
+  padding: 13px;
+  background: var(--blue);
+  color: var(--yellow);
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Inter',sans-serif;
+  transition: background .2s;
+  margin-top: 4px;
+  letter-spacing: .3px;
+}
+.save-btn:hover { background: var(--blue-light); }
+.admin-list { margin-top: 24px; }
+.admin-list-title { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--blue-light); margin-bottom: 12px; }
+.admin-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-bottom: 7px;
+}
+.admin-item-icon { font-size: 22px; flex-shrink: 0; }
+.admin-item-info { flex: 1; }
+.admin-item-info strong { font-size: 13px; font-weight: 600; display: block; }
+.admin-item-info span { font-size: 12px; color: var(--text-light); }
+.admin-item-actions { display: flex; gap: 6px; }
+.ia-btn {
+  width: 28px; height: 28px;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: none;
+  cursor: pointer;
+  font-size: 13px;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .15s;
+}
+.ia-btn.edit { color: var(--blue-light); }
+.ia-btn.edit:hover { border-color: var(--blue-light); background: rgba(15,52,96,0.05); }
+.ia-btn.del { color: var(--text-light); }
+.ia-btn.del:hover { border-color: var(--accent); color: var(--accent); }
+
+.toast {
+  position: fixed;
+  bottom: 80px; right: 20px;
+  background: var(--blue);
+  color: var(--yellow);
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  z-index: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+.toast.show { opacity: 1; }
+
+.empty-fav {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-light);
+}
+.empty-fav .ef-icon { font-size: 48px; margin-bottom: 12px; }
+.empty-fav p { font-size: 14px; margin-bottom: 16px; }
+.empty-fav button {
+  padding: 10px 24px;
+  background: var(--blue);
+  color: var(--yellow);
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter',sans-serif;
+}
+
+.results-info {
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 12px;
+}
+.results-info strong { color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-top">
+    <div class="logo" onclick="showCatalog()">
+      <span class="logo-main">Kerlon Eletro</span>
+      <span class="logo-sub">Instrumentos</span>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Buscar instrumentos e acessórios..." oninput="doSearch()">
+      <button onclick="doSearch()">🔍</button>
+    </div>
+    <div class="header-actions">
+      <button class="header-btn" onclick="showFavs()">
+        <span class="icon">♡<span class="fav-count" id="favCount">0</span></span>
+        <span class="label">Favoritos</span>
+      </button>
+    </div>
+  </div>
+  <div class="header-nav">
+    <div class="header-nav-inner" id="headerNav"></div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<div class="main-wrap">
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-title">Categorias</div>
+      <div class="sidebar-list" id="sidebarCats"></div>
+    </div>
+    <div class="sidebar-card">
+      <div class="sidebar-title">Faixa de Preço</div>
+      <div class="price-inputs">
+        <input type="number" id="priceMin" placeholder="Mín R$">
+        <input type="number" id="priceMax" placeholder="Máx R$">
+      </div>
+      <button class="price-btn" onclick="applyPriceFilter()">Filtrar</button>
+    </div>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+    <!-- CATALOG PAGE -->
+    <div class="catalog-page" id="catalogPage">
+      <!-- BANNER -->
+      <div class="banner-wrap" id="bannerWrap">
+        <div class="banner-slide b1 active">
+          <div class="banner-text">
+            <span class="banner-tag">Destaques</span>
+            <p class="banner-title">Os melhores instrumentos para o seu som</p>
+            <p class="banner-sub">Violões, guitarras e muito mais</p>
+          </div>
+          <div class="banner-emoji">🎸</div>
+        </div>
+        <div class="banner-slide b2">
+          <div class="banner-text">
+            <span class="banner-tag">Novidades</span>
+            <p class="banner-title">Teclados e acessórios chegando</p>
+            <p class="banner-sub">Confira as últimas novidades da loja</p>
+          </div>
+          <div class="banner-emoji">🎹</div>
+        </div>
+        <div class="banner-slide b3">
+          <div class="banner-text">
+            <span class="banner-tag">Serviços</span>
+            <p class="banner-title">Regulagem e manutenção profissional</p>
+            <p class="banner-sub">Troca de cordas, ajustes e muito mais</p>
+          </div>
+          <div class="banner-emoji">🔧</div>
+        </div>
+        <button class="banner-arrow prev" onclick="prevBanner()">‹</button>
+        <button class="banner-arrow next" onclick="nextBanner()">›</button>
+        <div class="banner-dots" id="bannerDots"></div>
+      </div>
+
+      <!-- CAT SHORTCUTS -->
+      <div class="cat-shortcuts" id="catShortcuts"></div>
+
+      <!-- PRODUCTS -->
+      <div id="resultsInfo" class="results-info" style="display:none"></div>
+      <div id="productSections"></div>
+    </div>
+
+    <!-- FAVORITES PAGE -->
+    <div class="fav-page" id="favPage">
+      <div class="section-header" style="margin-bottom:16px">
+        <h2>❤️ Meus Favoritos</h2>
+        <span onclick="showCatalog()">← Voltar ao catálogo</span>
+      </div>
+      <div id="favGrid" class="product-grid"></div>
+    </div>
+  </main>
+</div>
+
+<!-- PRODUCT MODAL -->
+<div class="overlay" id="overlay">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-inner" id="modalInner"></div>
+  </div>
+</div>
+
+<!-- ADMIN TOGGLE -->
+<button class="admin-toggle" id="adminToggle" title="Painel Admin">⚙️</button>
+
+<!-- ADMIN PANEL -->
+<div class="admin-overlay" id="adminOverlay">
+  <div class="admin-box">
+    <div class="admin-header">
+      <h2>⚙️ Gerenciar Produtos</h2>
+      <button class="x" onclick="closeAdmin()">✕</button>
+    </div>
+    <div class="admin-body">
+      <p class="form-section">Novo / Editar Produto</p>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nome</label>
+          <input type="text" id="fName" placeholder="Ex: Violão Clássico Yamaha">
+        </div>
+        <div class="form-group">
+          <label>Categoria</label>
+          <select id="fCat">
+            <option>Violões</option><option>Guitarras</option><option>Baixos</option>
+            <option>Teclados</option><option>Baterias</option><option>Cordas</option>
+            <option>Acessórios</option><option>Amplificadores</option><option>Sopros</option><option>Percussão</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Preço (R$)</label>
+          <input type="text" id="fPrice" placeholder="Ex: 450,00">
+        </div>
+        <div class="form-group">
+          <label>Destaque</label>
+          <select id="fBadge">
+            <option value="">Nenhum</option>
+            <option value="Novo">Novo</option>
+            <option value="Oferta">Oferta</option>
+            <option value="Top">Top</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Descrição</label>
+        <textarea id="fDesc" placeholder="Descreva o produto..."></textarea>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Ícone / Emoji</label>
+          <input type="text" id="fIcon" placeholder="🎸">
+        </div>
+        <div class="form-group">
+          <label>URL Foto / Vídeo</label>
+          <input type="text" id="fMedia" placeholder="https://...">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Opções disponíveis</label>
+        <div class="tag-row">
+          <input type="text" id="fOptInput" placeholder="Ex: Troca de cordas">
+          <button class="add-tag" onclick="addOpt()">+</button>
+        </div>
+        <div class="tags-preview" id="optTags"></div>
+      </div>
+      <div class="form-group">
+        <label>Produtos relacionados</label>
+        <div class="rel-checks" id="relChecks">
+          <span style="font-size:13px;color:var(--text-light)">Adicione produtos para vincular.</span>
+        </div>
+      </div>
+      <button class="save-btn" id="saveBtn" onclick="saveProduct()">Salvar Produto</button>
+      <div class="admin-list">
+        <p class="admin-list-title">Produtos Cadastrados</p>
+        <div id="adminList"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────
+let products = JSON.parse(localStorage.getItem('kerlon_v2') || 'null') || [
+  { id:1, name:'Violão Clássico', cat:'Violões', price:'450,00', icon:'🎸', badge:'Top',
+    desc:'Violão clássico de cedro com escala em ébano. Ideal para iniciantes e intermediários, com excelente projeção sonora.', media:'', extraMedia:[],
+    opts:['Troca de cordas','Regulagem completa','Capa protetora','Correia'], rel:[2,5] },
+  { id:2, name:'Jogo de Cordas Nylon', cat:'Cordas', price:'35,00', icon:'〰️', badge:'',
+    desc:'Cordas de nylon para violão clássico. Alta durabilidade e brilho sonoro.', media:'', extraMedia:[],
+    opts:['Tensão leve','Tensão média','Tensão alta'], rel:[1] },
+  { id:3, name:'Guitarra Stratocaster', cat:'Guitarras', price:'1.200,00', icon:'🎵', badge:'Novo',
+    desc:'Guitarra elétrica com corpo em alder, braço em maple e 3 captadores single coil.', media:'', extraMedia:[],
+    opts:['Troca de cordas','Regulagem de traste','Correia','Capa rígida'], rel:[4,7] },
+  { id:4, name:'Amplificador 15W', cat:'Amplificadores', price:'580,00', icon:'🔊', badge:'',
+    desc:'Amplificador valvulado de 15 watts, perfeito para prática em casa e estúdio.', media:'', extraMedia:[],
+    opts:['Cabo P10','Pedal de distorção'], rel:[3] },
+  { id:5, name:'Capa para Violão', cat:'Acessórios', price:'89,00', icon:'🎒', badge:'',
+    desc:'Capa acolchoada com bolsos internos para acessórios. Resistente à água.', media:'', extraMedia:[],
+    opts:['Tamanho padrão','Tamanho jumbo'], rel:[1] },
+  { id:6, name:'Teclado 61 Teclas', cat:'Teclados', price:'890,00', icon:'🎹', badge:'Oferta',
+    desc:'Teclado semi-profissional com 61 teclas sensíveis ao toque e 200 timbres.', media:'', extraMedia:[],
+    opts:['Suporte','Pedal sustain','Fone de ouvido','Capa'], rel:[] },
+  { id:7, name:'Pedal de Distorção', cat:'Acessórios', price:'220,00', icon:'🎛️', badge:'',
+    desc:'Pedal analógico de distorção com controles de gain, tone e volume.', media:'', extraMedia:[],
+    opts:['Fonte 9V','Cabo P10'], rel:[3,4] },
+];
+
+let favs = JSON.parse(localStorage.getItem('kerlon_favs') || '[]');
+let selectedOpts = {};
+let editingId = null;
+let adminOpts = [];
+let currentBanner = 0;
+let bannerTimer;
+let priceMin = null, priceMax = null;
+let searchTerm = '';
+let currentCat = 'Todos';
+
+const CAT_ICONS = {
+  'Violões':'🎸','Guitarras':'🎵','Baixos':'🎼','Teclados':'🎹','Baterias':'🥁',
+  'Cordas':'〰️','Acessórios':'🎒','Amplificadores':'🔊','Sopros':'🎺','Percussão':'🪘','Todos':'🎶'
+};
+
+function save() { localStorage.setItem('kerlon_v2', JSON.stringify(products)); }
+function saveFavs() { localStorage.setItem('kerlon_favs', JSON.stringify(favs)); }
+
+// ── BANNER ────────────────────────────────────────────────
+function initBanner() {
+  const slides = document.querySelectorAll('.banner-slide');
+  const dots = document.getElementById('bannerDots');
+  dots.innerHTML = '';
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'banner-dot' + (i===0?' active':'');
+    d.onclick = () => goBanner(i);
+    dots.appendChild(d);
+  });
+  startBannerTimer();
+}
+function goBanner(i) {
+  const slides = document.querySelectorAll('.banner-slide');
+  const dots = document.querySelectorAll('.banner-dot');
+  slides[currentBanner].classList.remove('active');
+  dots[currentBanner].classList.remove('active');
+  currentBanner = (i + slides.length) % slides.length;
+  slides[currentBanner].classList.add('active');
+  dots[currentBanner].classList.add('active');
+}
+function prevBanner() { clearInterval(bannerTimer); goBanner(currentBanner-1); startBannerTimer(); }
+function nextBanner() { clearInterval(bannerTimer); goBanner(currentBanner+1); startBannerTimer(); }
+function startBannerTimer() { bannerTimer = setInterval(() => goBanner(currentBanner+1), 4000); }
+
+// ── NAV / SIDEBAR ─────────────────────────────────────────
+function getCats() { return ['Todos', ...new Set(products.map(p=>p.cat))]; }
+
+function renderNav() {
+  const nav = document.getElementById('headerNav');
+  nav.innerHTML = getCats().map(c =>
+    `<button class="nav-cat ${c===currentCat?'active':''}" onclick="setCat('${c}')">${c}</button>`
+  ).join('');
+}
+
+function renderSidebar() {
+  const el = document.getElementById('sidebarCats');
+  el.innerHTML = getCats().map(c => {
+    const count = c==='Todos' ? products.length : products.filter(p=>p.cat===c).length;
+    return `<div class="sidebar-item ${c===currentCat?'active':''}" onclick="setCat('${c}')">
+      <span class="cat-icon">${CAT_ICONS[c]||'🎵'}</span>
+      <span>${c}</span>
+      <span class="cat-count">${count}</span>
+    </div>`;
+  }).join('');
+}
+
+function renderCatShortcuts() {
+  const el = document.getElementById('catShortcuts');
+  el.innerHTML = getCats().map(c =>
+    `<div class="cat-shortcut ${c===currentCat?'active':''}" onclick="setCat('${c}')">
+      <span class="cs-icon">${CAT_ICONS[c]||'🎵'}</span>
+      <span class="cs-name">${c}</span>
+    </div>`
+  ).join('');
+}
+
+function setCat(cat) {
+  currentCat = cat;
+  searchTerm = '';
+  document.getElementById('searchInput').value = '';
+  priceMin = null; priceMax = null;
+  document.getElementById('priceMin').value = '';
+  document.getElementById('priceMax').value = '';
+  showCatalog();
+  renderNav();
+  renderSidebar();
+  renderCatShortcuts();
+  renderProducts();
+}
+
+// ── PRODUCTS RENDER ───────────────────────────────────────
+function getFiltered() {
+  let list = [...products];
+  if (currentCat !== 'Todos') list = list.filter(p => p.cat === currentCat);
+  if (searchTerm) {
+    const s = searchTerm.toLowerCase();
+    list = list.filter(p => p.name.toLowerCase().includes(s) || p.cat.toLowerCase().includes(s) || p.desc.toLowerCase().includes(s));
+  }
+  if (priceMin !== null) list = list.filter(p => parseFloat(p.price.replace(',','.')) >= priceMin);
+  if (priceMax !== null) list = list.filter(p => parseFloat(p.price.replace(',','.')) <= priceMax);
+  return list;
+}
+
+function renderProducts() {
+  const el = document.getElementById('productSections');
+  const info = document.getElementById('resultsInfo');
+  const filtered = getFiltered();
+
+  if (searchTerm || priceMin !== null || priceMax !== null) {
+    info.style.display = 'block';
+    info.innerHTML = `<strong>${filtered.length}</strong> resultado(s) encontrado(s)`;
+    el.innerHTML = '';
+    const g = document.createElement('div'); g.className = 'product-grid';
+    filtered.forEach(p => g.appendChild(makeCard(p)));
+    el.appendChild(g);
+    return;
+  }
+
+  info.style.display = 'none';
+  el.innerHTML = '';
+
+  if (currentCat === 'Todos') {
+    const cats = [...new Set(products.map(p=>p.cat))];
+    cats.forEach(cat => {
+      const items = products.filter(p=>p.cat===cat);
+      if (!items.length) return;
+      const h = document.createElement('div'); h.className = 'section-header';
+      h.innerHTML = `<h2>${CAT_ICONS[cat]||'🎵'} ${cat}</h2><span onclick="setCat('${cat}')">Ver todos</span>`;
+      el.appendChild(h);
+      const g = document.createElement('div'); g.className = 'product-grid';
+      items.forEach(p => g.appendChild(makeCard(p)));
+      el.appendChild(g);
+    });
+  } else {
+    const h = document.createElement('div'); h.className = 'section-header';
+    h.innerHTML = `<h2>${CAT_ICONS[currentCat]||'🎵'} ${currentCat}</h2><span>${filtered.length} produtos</span>`;
+    el.appendChild(h);
+    const g = document.createElement('div'); g.className = 'product-grid';
+    filtered.forEach(p => g.appendChild(makeCard(p)));
+    el.appendChild(g);
+  }
+}
+
+function makeCard(p) {
+  const isFav = favs.includes(p.id);
+  const card = document.createElement('div');
+  card.className = 'pcard';
+  card.innerHTML = `
+    ${p.badge ? `<span class="pcard-badge ${p.badge.toLowerCase()}">${p.badge}</span>` : ''}
+    <button class="pcard-fav ${isFav?'active':''}" onclick="toggleFav(event,${p.id})">${isFav?'❤️':'🤍'}</button>
+    <div class="pcard-img">${mediaTag(p.media, p.icon)}</div>
+    <div class="pcard-body">
+      <p class="pcard-name">${p.name}</p>
+      <p class="pcard-price">R$ ${p.price}</p>
+      <p class="pcard-price-small">ou no WhatsApp</p>
+      <button class="pcard-cta" onclick="openModal(event,${p.id})">Ver produto</button>
+    </div>`;
+  card.onclick = () => openModal(null, p.id);
+  return card;
+}
+
+function mediaTag(url, icon) {
+  if (!url) return `<span class="p-emoji">${icon||'🎵'}</span>`;
+  if (url.match(/\.(mp4|webm|mov)/i)) return `<video src="${url}" muted autoplay loop style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"></video>`;
+  return `<img src="${url}" alt="" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0" onerror="this.style.display='none'">`;
+}
+
+// ── SEARCH / FILTER ───────────────────────────────────────
+function doSearch() {
+  searchTerm = document.getElementById('searchInput').value.trim();
+  currentCat = 'Todos';
+  showCatalog();
+  renderNav();
+  renderSidebar();
+  renderCatShortcuts();
+  renderProducts();
+}
+
+function applyPriceFilter() {
+  const mn = document.getElementById('priceMin').value;
+  const mx = document.getElementById('priceMax').value;
+  priceMin = mn ? parseFloat(mn) : null;
+  priceMax = mx ? parseFloat(mx) : null;
+  renderProducts();
+}
+
+// ── FAVORITES ─────────────────────────────────────────────
+function toggleFav(e, id) {
+  if (e) e.stopPropagation();
+  if (favs.includes(id)) { favs = favs.filter(x=>x!==id); toast('Removido dos favoritos'); }
+  else { favs.push(id); toast('Adicionado aos favoritos ❤️'); }
+  saveFavs();
+  updateFavCount();
+  renderProducts();
+}
+
+function updateFavCount() {
+  document.getElementById('favCount').textContent = favs.length;
+}
+
+function showFavs() {
+  document.getElementById('catalogPage').classList.add('hidden');
+  document.getElementById('favPage').classList.add('open');
+  const grid = document.getElementById('favGrid');
+  const favProducts = products.filter(p => favs.includes(p.id));
+  if (!favProducts.length) {
+    grid.innerHTML = `<div class="empty-fav" style="grid-column:1/-1">
+      <div class="ef-icon">🤍</div>
+      <p>Nenhum favorito ainda.<br>Explore o catálogo e favorite seus produtos.</p>
+      <button onclick="showCatalog()">Ver catálogo</button>
+    </div>`;
+  } else {
+    grid.innerHTML = '';
+    favProducts.forEach(p => grid.appendChild(makeCard(p)));
+  }
+}
+
+function showCatalog() {
+  document.getElementById('catalogPage').classList.remove('hidden');
+  document.getElementById('favPage').classList.remove('open');
+}
+
+// ── MODAL ─────────────────────────────────────────────────
+function openModal(e, id) {
+  if (e) e.stopPropagation();
+  const p = products.find(x=>x.id===id); if (!p) return;
+  if (!selectedOpts[id]) selectedOpts[id] = [];
+  const related = products.filter(x=>(p.rel||[]).includes(x.id));
+  const isFav = favs.includes(id);
+  const allMedia = [p.media,...(p.extraMedia||[])].filter(Boolean);
+
+  let thumbsHtml = '';
+  if (allMedia.length > 1) {
+    thumbsHtml = `<div class="thumb-strip">
+      ${allMedia.map((m,i)=>`<div class="thumb ${i===0?'active':''}" onclick="switchMedia('${m}',this)">${mediaThumb(m,p.icon)}</div>`).join('')}
+    </div>`;
+  }
+
+  document.getElementById('modalInner').innerHTML = `
+    <div class="modal-layout">
+      <div>
+        <div class="modal-media-main" id="mainMedia">${mediaTagModal(p.media,p.icon)}</div>
+        ${thumbsHtml}
+      </div>
+      <div class="modal-info">
+        <p class="modal-cat">${p.cat}</p>
+        <h2 class="modal-name">${p.name}</h2>
+        <p class="modal-price-big">R$ ${p.price}</p>
+        <p class="modal-price-note">Consulte condições de parcelamento no WhatsApp</p>
+        <p class="modal-desc">${p.desc}</p>
+        ${p.opts&&p.opts.length?`
+          <p class="opt-label">Opções disponíveis</p>
+          <div class="opt-chips">
+            ${p.opts.map(o=>`<button class="opt-chip ${selectedOpts[id].includes(o)?'on':''}" onclick="toggleOpt(${id},'${o}',this)">${o}</button>`).join('')}
+          </div>` : ''}
+        <div class="modal-cta-wrap">
+          <button class="btn-whatsapp" onclick="sendWA(${id})">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Tenho interesse — falar no WhatsApp
+          </button>
+          <button class="btn-fav-modal ${isFav?'active':''}" onclick="toggleFav(null,${id});this.classList.toggle('active');this.textContent=favs.includes(${id})?'❤️ Salvo nos favoritos':'🤍 Salvar nos favoritos'">
+            ${isFav?'❤️ Salvo nos favoritos':'🤍 Salvar nos favoritos'}
+          </button>
+        </div>
+      </div>
+    </div>
+    ${related.length?`
+      <div class="related-section">
+        <p class="related-title">🎯 Leva junto também</p>
+        <div class="related-row">
+          ${related.map(r=>`<div class="related-item" onclick="openModal(null,${r.id})">
+            <span class="rel-icon">${r.icon||'🎵'}</span>
+            <div class="rel-info"><p class="rel-name">${r.name}</p><p class="rel-price">R$ ${r.price}</p></div>
+          </div>`).join('')}
+        </div>
+      </div>` : ''}`;
+
+  document.getElementById('overlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function mediaTagModal(url, icon) {
+  if (!url) return `<span class="m-emoji">${icon||'🎵'}</span>`;
+  if (url.match(/\.(mp4|webm|mov)/i)) return `<video src="${url}" controls style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"></video>`;
+  return `<img src="${url}" alt="" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0" onerror="this.style.display='none'">`;
+}
+function mediaThumb(url, icon) {
+  if (!url) return icon||'🎵';
+  if (url.match(/\.(mp4|webm|mov)/i)) return `<video src="${url}" muted style="width:100%;height:100%;object-fit:cover"></video>`;
+  return `<img src="${url}" style="width:100%;height:100%;object-fit:cover">`;
+}
+function switchMedia(src, el) {
+  const m = document.getElementById('mainMedia'); if (!m) return;
+  m.innerHTML = src.match(/\.(mp4|webm|mov)/i)
+    ? `<video src="${src}" controls style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0"></video>`
+    : `<img src="${src}" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0">`;
+  document.querySelectorAll('.thumb').forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+}
+function toggleOpt(id, opt, el) {
+  if (!selectedOpts[id]) selectedOpts[id]=[];
+  const i = selectedOpts[id].indexOf(opt);
+  if (i===-1) { selectedOpts[id].push(opt); el.classList.add('on'); }
+  else { selectedOpts[id].splice(i,1); el.classList.remove('on'); }
+}
+function closeModal() {
+  document.getElementById('overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('overlay').onclick = e => { if (e.target===document.getElementById('overlay')) closeModal(); };
+
+function sendWA(id) {
+  const p = products.find(x=>x.id===id); if (!p) return;
+  const opts = selectedOpts[id]||[];
+  let msg = `Olá, Kerlon Eletro! 🎸\n\nTenho interesse no produto:\n*${p.name}* — R$ ${p.price}`;
+  if (opts.length) msg += `\n\nOpções desejadas:\n${opts.map(o=>`• ${o}`).join('\n')}`;
+  msg += `\n\nPoderia me passar mais informações?`;
+  window.open(`https://wa.me/55?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
+// ── ADMIN ─────────────────────────────────────────────────
+document.getElementById('adminToggle').onclick = () => {
+  document.getElementById('adminOverlay').classList.add('open');
+  renderAdminList();
+  renderRelChecks();
+};
+function closeAdmin() {
+  document.getElementById('adminOverlay').classList.remove('open');
+  resetForm();
+}
+
+function renderAdminList() {
+  const el = document.getElementById('adminList');
+  el.innerHTML = products.map(p=>`
+    <div class="admin-item">
+      <span class="admin-item-icon">${p.icon||'🎵'}</span>
+      <div class="admin-item-info"><strong>${p.name}</strong><span>${p.cat} — R$ ${p.price}</span></div>
+      <div class="admin-item-actions">
+        <button class="ia-btn edit" onclick="editProduct(${p.id})" title="Editar">✏️</button>
+        <button class="ia-btn del" onclick="deleteProduct(${p.id})" title="Excluir">✕</button>
+      </div>
+    </div>`).join('') || '<p style="font-size:13px;color:var(--text-light)">Nenhum produto.</p>';
+}
+
+function renderRelChecks() {
+  const el = document.getElementById('relChecks');
+  const others = products.filter(p=>p.id!==editingId);
+  if (!others.length) { el.innerHTML='<span style="font-size:13px;color:var(--text-light)">Adicione produtos primeiro.</span>'; return; }
+  el.innerHTML = others.map(p=>{
+    const on = (window._editRel||[]).includes(p.id);
+    return `<label class="rel-check-item ${on?'on':''}" onclick="this.classList.toggle('on')">
+      <input type="checkbox" value="${p.id}" ${on?'checked':''}> ${p.icon||'🎵'} ${p.name}
+    </label>`;
+  }).join('');
+}
+
+document.getElementById('fOptInput').onkeydown = e => { if(e.key==='Enter'){e.preventDefault();addOpt();} };
+function addOpt() {
+  const v = document.getElementById('fOptInput').value.trim(); if(!v) return;
+  if (!adminOpts.includes(v)) { adminOpts.push(v); renderOptTags(); }
+  document.getElementById('fOptInput').value='';
+}
+function renderOptTags() {
+  document.getElementById('optTags').innerHTML = adminOpts.map((o,i)=>
+    `<span class="tag-pill">${o} <span class="tag-x" onclick="removeOpt(${i})">×</span></span>`).join('');
+}
+function removeOpt(i) { adminOpts.splice(i,1); renderOptTags(); }
+
+function saveProduct() {
+  const name = document.getElementById('fName').value.trim();
+  const price = document.getElementById('fPrice').value.trim();
+  if (!name||!price) { toast('Preencha nome e preço!'); return; }
+  const rel = [...document.querySelectorAll('#relChecks input:checked')].map(el=>parseInt(el.value));
+  const prod = {
+    id: editingId||Date.now(), name,
+    cat: document.getElementById('fCat').value,
+    price, icon: document.getElementById('fIcon').value.trim()||'🎵',
+    badge: document.getElementById('fBadge').value,
+    desc: document.getElementById('fDesc').value.trim(),
+    media: document.getElementById('fMedia').value.trim(),
+    extraMedia:[], opts:[...adminOpts], rel
+  };
+  if (editingId) { const i=products.findIndex(p=>p.id===editingId); if(i!==-1) products[i]=prod; }
+  else products.push(prod);
+  save(); renderAll(); renderAdminList(); renderRelChecks(); resetForm();
+  toast(editingId?'Produto atualizado!':'Produto adicionado!');
+}
+
+function editProduct(id) {
+  const p=products.find(x=>x.id===id); if(!p) return;
+  editingId=id; window._editRel=[...(p.rel||[])];
+  document.getElementById('fName').value=p.name;
+  document.getElementById('fCat').value=p.cat;
+  document.getElementById('fPrice').value=p.price;
+  document.getElementById('fIcon').value=p.icon||'';
+  document.getElementById('fBadge').value=p.badge||'';
+  document.getElementById('fDesc').value=p.desc||'';
+  document.getElementById('fMedia').value=p.media||'';
+  adminOpts=[...(p.opts||[])]; renderOptTags(); renderRelChecks();
+  document.getElementById('saveBtn').textContent='Atualizar Produto';
+  document.querySelector('.admin-box').scrollTop=0;
+}
+
+function deleteProduct(id) {
+  if(!confirm('Excluir este produto?')) return;
+  products=products.filter(p=>p.id!==id);
+  save(); renderAll(); renderAdminList(); toast('Produto removido.');
+}
+
+function resetForm() {
+  editingId=null; window._editRel=[]; adminOpts=[];
+  ['fName','fPrice','fIcon','fMedia','fDesc'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('fCat').value='Violões';
+  document.getElementById('fBadge').value='';
+  document.getElementById('optTags').innerHTML='';
+  document.getElementById('saveBtn').textContent='Salvar Produto';
+}
+
+function renderAll() {
+  renderNav(); renderSidebar(); renderCatShortcuts(); renderProducts(); updateFavCount();
+}
+
+function toast(msg) {
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2000);
+}
+
+// ── INIT ──────────────────────────────────────────────────
+initBanner();
+renderAll();
+</script>
+</body>
+</html>
